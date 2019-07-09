@@ -108,9 +108,7 @@ public class ProductController {
 
         List<String> returnList = new ArrayList<>();
 
-        productList.forEach(product ->{
-            returnList.add(String.format("%s : %d", product.toString(), product.getPrix() - product.getPrixAchat()));
-        });
+        productList.forEach(product -> returnList.add(String.format("%s : %d", product.toString(), product.getPrix() - product.getPrixAchat())));
 
         return returnList;
     }
