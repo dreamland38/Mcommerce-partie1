@@ -28,11 +28,8 @@ public class ProductController {
     @Autowired
     private ProductDao productDao;
 
-
     //Récupérer la liste des produits
-
     @RequestMapping(value = "/Produits", method = RequestMethod.GET)
-
     public MappingJacksonValue listeProduits() {
 
         Iterable<Product> produits = productDao.findAll();
@@ -111,6 +108,12 @@ public class ProductController {
         });
 
         return returnList;
+    }
+
+    @GetMapping(value = "/Produits/TrierParOrdreAlphabetique")
+    public List<Product> trierProduitsParOrdreAlphabetique (){
+
+        return productDao.findAllByOrderByNomAsc();
     }
 
 }
